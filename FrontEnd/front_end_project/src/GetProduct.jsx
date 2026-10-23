@@ -156,7 +156,7 @@ const GetProduct = () => {
 
     // Pagination
 
-  const handlePageChange = (page) => {
+    const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
