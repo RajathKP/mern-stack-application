@@ -1,21 +1,28 @@
-console.log("Server has started");
 
+console.log("Server has started");
 const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
 const cors = require("cors");
+const app = express();
+
 const User = require("./models/userModel");
 const Product = require("./models/productModule")
 const Book   =  require("./models/booksModel.js")
 app.use(express.json());
-const router = express.Router();
+const authRoutes = require("./routes/authRoutes");
 
-
+// CORS FIRST
 app.use(cors({
-    origin: "http://localhost:5173"
+  origin: "http://localhost:5173"
 }));
 
+
+// JSON
 app.use(express.json());
+
+// AUTH ROUTES
+app.use("/auth", authRoutes);
+
 
 app.use((req, res, next) => {
     console.log(req.url);
@@ -25,11 +32,6 @@ app.use((req, res, next) => {
     }
 
     next();
-});
-
-
-app.get("/", (req, res) => {
-    res.send("Hello, This is my Home page");
 });
 
 app.get("/about", (req, res) => {
@@ -581,6 +583,13 @@ app.delete("/product/:id", async (req, res) => {
             message: error.message
         });
     }
+});
+
+// Authentication routes
+app.use("/auth", authRoutes);
+
+app.get("/", (req, res) => {
+  res.send("API is working");
 });
 
 app.listen(5000, () => {

@@ -13,13 +13,14 @@ const Header = () => {
         </Navbar.Brand>
 
         <Nav>
+
+          <Nav.Link as={Link} to="/login">
+            Sign in
+          </Nav.Link>
+
           <Nav.Link as={Link} to="/getuser">
             Users
           </Nav.Link>
-
-
-         
-
           <Nav.Link as={Link} to="/getproduct">
         Getproduct
           </Nav.Link>

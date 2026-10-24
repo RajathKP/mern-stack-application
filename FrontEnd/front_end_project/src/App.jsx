@@ -8,20 +8,24 @@ import GetProduct from "./GetProduct";
 import Product from "./Product";
 import Books from "./Books";
 
+
+
 function App() {
   return (
     <BrowserRouter>
       <Header/>
-
+    
       <Routes>
         <Route path="/createuser" element={<CreateUser/>} />
         <Route path="/getuser" element={<GetUser/>} />
         <Route path="/product" element={<Product/>} />
-        <Route path="/getproduct" element={<GetProduct/>} />
+      
 
         <Route path="/books" element={<Books/>} />
       </Routes>
-    </BrowserRouter>
+
+
+</BrowserRouter>
   );
 }
 
