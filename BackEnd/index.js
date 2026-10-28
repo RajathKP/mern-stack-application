@@ -11,7 +11,7 @@ const Book   =  require("./models/booksModel.js")
 app.use(express.json());
 const authRoutes = require("./routes/authRoutes");
 
-// CORS FIRST
+// CORS 
 app.use(cors({
   origin: "http://localhost:5173"
 }));
